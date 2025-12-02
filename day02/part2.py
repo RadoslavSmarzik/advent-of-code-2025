@@ -5,10 +5,11 @@ def split_into_n_parts(string, n):
     part_length = int(len(string) / n)
 
     for i in range(n):
-        parts.append(string[i * part_length : (i +1) * part_length ])
+        parts.append(string[i * part_length : (i + 1) * part_length])
 
     return parts
 
+# funckia vrati True, ak vsetky itemy v parts maju rovnaku hodnotu
 def are_same(parts):
     first = parts[0]
 
@@ -29,7 +30,10 @@ def has_n_same_parts(string, n):
     parts = split_into_n_parts(string, n)
     if are_same(parts):
         return True
+    
+    return False
 
+# funkcia vracia True, ak je cislo nevalidne
 def is_invalid(number):
     string = str(number)
 
@@ -52,7 +56,6 @@ for r in ranges:
     max_val = int(corners[1])
     for i in range(min_val, max_val + 1):
         if is_invalid(i):
-            print(i)
             sum += i
 
 print(sum)

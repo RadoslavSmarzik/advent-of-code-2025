@@ -1,3 +1,4 @@
+# funkcia vracia True, ak je cislo nevalidne
 def is_invalid(number):
     string = str(number)
 
