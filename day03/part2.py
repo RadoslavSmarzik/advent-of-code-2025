@@ -1,24 +1,21 @@
 DIGITS = 12
 
 def create_number(input):
-    result = ""
-    for i in input:
-        result += str(i)
+    result = 0
+    for i in range(len(input)):
+        result += input[i] * 10**(DIGITS - i - 1)
 
-    return int(result)
+    return result
 
 def calculate_bank(input):
     indexes = [0] * DIGITS
 
-    first_index = 0
-    for i in range(len(input) - (DIGITS - 1)):
-        if input[i] > input[first_index]:
-            first_index = i
+    for i in range(DIGITS):
+        if i == 0:
+            next_index = 0
+        else :
+            next_index = indexes[i - 1] + 1
 
-    indexes[0] = first_index
-
-    for i in range(1, DIGITS):
-        next_index = indexes[i - 1] + 1
         for j in range(next_index, len(input) - (DIGITS - i) + 1):
             if input[j] > input[next_index]:
                 next_index = j
